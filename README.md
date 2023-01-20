@@ -141,9 +141,9 @@ e o status http `401`:
 }
 ```
 
-## Swagger
+### Swagger
 
-Para simular o uso da aplicação foi criado o endpoint `api-docs/index.html` utilizando a 
+Para simular o uso da aplicação foi criado o endpoint `/api-docs/index.html` utilizando a 
 gem 'swagger' que permite realizar requisições http POST e visualizar as respostas por meio
 do acesso à URL:
 
