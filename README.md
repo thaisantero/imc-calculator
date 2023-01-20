@@ -92,12 +92,10 @@ uma requisição com o verbo `POST` na seguinte URL:
 
 ### Documentação da API
 
-Para documentar a API de cálculo do IMC foi utilizado a gem swagger, utilizando ela foi 
-criado o endpoint `/api-docs/` onde é contém a documentaçao da API com todas as possíveis respostas
-e exemplos. Além disso, é possível realizar requisições http POST e visualizar as respostas por meio
-do acesso à URL:
-
-`http://localhost:3000/api-docs/index.html`
+Para documentar a API de cálculo do IMC foi utilizado a gem 'rswag' que gera
+uma documentação da API utilizando swagger e cria o endpoint `/api-docs/` que 
+contém a documentação da API com todas as possíveis respostas
+e exemplos. Além disso, é possível realizar requisições e visualizar as respostas.
 
 A imagem abaixo apresenta a documentação da API desenvolvida com swagger.
 
@@ -118,8 +116,8 @@ Para fazer uma requisição de POST com sucesso é necessário enviar os dados n
 
 ```json
 {
-"height": 1.70,
-"weight": 76
+  "height": 1.70,
+  "weight": 76
 }
 ```
 Com o header no formato do exemplo a seguir:
@@ -131,9 +129,9 @@ e o status http `200`, de acordo com o exemplo:
 
 ```json
 {
-"imc": 26.3,
-"classification": "Sobrepeso",
-"obesity": "I"
+  "imc": 26.3,
+  "classification": "Sobrepeso",
+  "obesity": "I"
 }
 ```
 
@@ -142,7 +140,7 @@ e o status http `400`:
 
 ```json
 {
-"errors": "mensagens de erros de validação"
+  "errors": "mensagens de erros de validação"
 }
 ```
 
@@ -151,7 +149,7 @@ e o status http `401`:
 
 ```json
 {
-"errors": "Token inválido"
+  "errors": "Token inválido"
 }
 ```
 
