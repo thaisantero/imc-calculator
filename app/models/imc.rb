@@ -1,8 +1,10 @@
 class Imc
   include ActiveModel::Validations
+  extend ActiveModel::Translation
 
   attr_reader :height, :weight
 
+  validates :height, :weight, presence: true
   validates :height, numericality: { greater_than: 0 }
   validates :weight, numericality: { greater_than: 0 }
 
