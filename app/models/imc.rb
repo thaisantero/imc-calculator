@@ -5,8 +5,8 @@ class Imc
   attr_reader :height, :weight
 
   validates :height, :weight, presence: true
-  validates :height, numericality: { greater_than: 0 }
-  validates :weight, numericality: { greater_than: 0 }
+  validates :height, numericality: {greater_than: 0}
+  validates :weight, numericality: {greater_than: 0}
 
   def initialize(height:, weight:)
     @height = height
@@ -15,29 +15,29 @@ class Imc
 
   def classification
     if value < 18.5
-      'Magreza'
+      "Magreza"
     elsif value < 25
-      'Normal'
+      "Normal"
     elsif value < 30
-      'Sobrepeso'
+      "Sobrepeso"
     elsif value < 40
-      'Obesidade'
+      "Obesidade"
     else
-      'Obesidade Grave'
+      "Obesidade Grave"
     end
   end
 
   def obesity
     if value < 18.5
-       '0'
+      "0"
     elsif value < 25
-       '0'
+      "0"
     elsif value < 30
-       'I'
+      "I"
     elsif value < 40
-       'II'
+      "II"
     else
-       'III'
+      "III"
     end
   end
 

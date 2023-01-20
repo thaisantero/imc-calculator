@@ -1,9 +1,9 @@
 class JsonWebToken
-  VALID_TOKEN = 'valid_token'.freeze
+  VALID_TOKEN = "valid_token".freeze
 
   class DecodeError < StandardError
     def message
-      I18n.t('errors.invalid_token')
+      I18n.t("errors.invalid_token")
     end
   end
 

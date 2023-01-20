@@ -11,7 +11,7 @@ module Api
             obesity: imc.obesity
           }
         else
-          render status: :bad_request, json: { errors: imc.errors.full_messages }
+          render status: :bad_request, json: {errors: imc.errors.full_messages}
         end
       end
 
