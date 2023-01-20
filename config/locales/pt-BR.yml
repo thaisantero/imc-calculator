@@ -106,6 +106,7 @@ pt-BR:
       month: Mês
       year: Ano
   errors:
+    invalid_token: Token inválido
     format: "%{attribute} %{message}"
     messages:
       accepted: deve ser aceito

@@ -1,6 +1,6 @@
 module Api
   module V1
-    class ImcController < ActionController::API
+    class ImcController < ApplicationController
       def create
         imc = Imc.new(height: imc_params[:height], weight: imc_params[:weight])
         if imc.valid?
