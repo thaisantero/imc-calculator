@@ -141,6 +141,14 @@ e o status http `401`:
 }
 ```
 
+## Swagger
+
+Para simular o uso da aplicação foi criado o endpoint `api-docs/index.html` utilizando a 
+gem 'swagger' que permite realizar requisições http POST e visualizar as respostas por meio
+do acesso à URL:
+
+`http://localhost:3000/api-docs/index.html`
+
 ## :red_circle: Pontos a melhorar
 
 Como não foi colocado como prioridade no escopo do projeto e, também,
@@ -152,4 +160,4 @@ seria a implantação de um endpoint para login que retornaria o JWT Token
 referente ao usuário e os dados do usuário seriam salvos no banco de dados.
 
 Para que, assim, realmente seja realizada a autenticação do JWT Token
-na rota `POST '/imc'/`.
+na rota `POST '/imc'`.
