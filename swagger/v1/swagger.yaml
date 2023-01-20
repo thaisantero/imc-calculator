@@ -1,0 +1,71 @@
+---
+swagger: '2.0'
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/imc":
+    post:
+      summary: Calculate IMC
+      tags:
+      - Imc
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        type: string
+        default: Bearer valid_token
+      - name: params
+        in: body
+        schema:
+          type: object
+          properties:
+            height:
+              type: number
+              default: 1.7
+              description: Person height
+            weight:
+              type: number
+              default: 70
+              description: Person weight
+          required:
+          - height, weight
+      responses:
+        '200':
+          description: ok
+          schema:
+            type: object
+            properties:
+              imc:
+                type: number
+                default: 24.22
+              obesity:
+                type: string
+                default: '0'
+              classification:
+                type: string
+                default: Normal
+        '400':
+          description: bad_request
+          schema:
+            type: object
+            properties:
+              errors:
+                type: string
+                default: mensagem de erro de validação
+        '401':
+          description: unauthorized
+          schema:
+            type: object
+            properties:
+              errors:
+                type: string
+                default: Token inválido
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
