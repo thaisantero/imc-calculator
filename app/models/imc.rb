@@ -1,5 +1,10 @@
 class Imc
+  include ActiveModel::Validations
+
   attr_reader :height, :weight
+
+  validates :height, numericality: { greater_than: 0 }
+  validates :weight, numericality: { greater_than: 0 }
 
   def initialize(height:, weight:)
     @height = height

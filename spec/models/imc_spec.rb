@@ -2,13 +2,91 @@ require 'rails_helper'
 
 RSpec.describe Imc, type: :model do
   describe 'validations' do
+    context 'when height is nil' do
+      it 'is not valid' do
+        imc = Imc.new(height: nil, weight: 80)
+
+        expect(imc.valid?).to eq false
+      end
+    end
+
+    context 'when weight is nil' do
+      it 'is not valid' do
+        imc = Imc.new(height: 2, weight: nil)
+
+        expect(imc.valid?).to eq false
+      end
+    end
+
+    context 'when height is a text' do
+      it 'is not valid' do
+        imc = Imc.new(height: 'abc', weight: 80)
+
+        expect(imc.valid?).to eq false
+      end
+    end
+
+    context 'when weight is a text' do
+      it 'is not valid' do
+        imc = Imc.new(height: 2, weight: 'abc')
+
+        expect(imc.valid?).to eq false
+      end
+    end
+
     context 'when height and weight are positive values' do
       it 'is valid' do
         imc = Imc.new(height: 2, weight: 80)
 
-        imc_value = imc.value
+        expect(imc.valid?).to eq true
+      end
+    end
 
-        expect(imc_value).to eq 20
+    context 'when height is a negative value' do
+      it 'is not valid' do
+        imc = Imc.new(height: -2, weight: 80)
+
+        expect(imc.valid?).to eq false
+      end
+    end
+
+    context 'when weight is a negative value' do
+      it 'is not valid' do
+        imc = Imc.new(height: 2, weight: -80)
+
+        expect(imc.valid?).to eq false
+      end
+    end
+
+    context 'when height is zero' do
+      it 'is not valid' do
+        imc = Imc.new(height: 0, weight: 80)
+
+        expect(imc.valid?).to eq false
+      end
+    end
+
+    context 'when weight is zero' do
+      it 'is not valid' do
+        imc = Imc.new(height: 2, weight: 0)
+
+        expect(imc.valid?).to eq false
+      end
+    end
+
+    context 'when height is a float number' do
+      it 'is not valid' do
+        imc = Imc.new(height: 1.8123, weight: 80)
+
+        expect(imc.valid?).to eq true
+      end
+    end
+
+    context 'when weight is a float number' do
+      it 'is not valid' do
+        imc = Imc.new(height: 2, weight: 80.234)
+
+        expect(imc.valid?).to eq true
       end
     end
   end
