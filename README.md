@@ -18,6 +18,12 @@ Com isso, simulei a autenticação do JWT Token criando uma classe Ruby pura
 `JsonWebToken` onde verificava se o código enviado no header correspondia
 ao token de validação denominado 'valid_token'.
 
+Esta aplicacao foi desenvolvida com uma cobertura de testes de 100%. A imagem
+a seguir apresenta o resultado da análise de cobertura de testes realizado pela
+gem simplecov.
+
+![alt text](https://github.com/thaisantero/imc-calculator/blob/main/coverage/result/Screenshot%20from%202023-01-20%2015-18-00.png)
+
 ## :dog: Dependências
 
 As configurações necessárias para executar a aplicação sem utilizar Docker sao:
