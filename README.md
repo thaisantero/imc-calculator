@@ -22,7 +22,7 @@ Esta aplicacao foi desenvolvida com uma cobertura de testes de 100%. A imagem
 a seguir apresenta o resultado da análise de cobertura de testes realizado pela
 gem simplecov.
 
-![alt text](https://github.com/thaisantero/imc-calculator/blob/main/coverage/result/Screenshot%20from%202023-01-20%2015-18-00.png)
+![alt text](https://github.com/thaisantero/imc-calculator/blob/main/images_raeadme/Screenshot%20from%202023-01-20%2015-18-00.png)
 
 ## :dog: Dependências
 
@@ -90,6 +90,20 @@ uma requisição com o verbo `POST` na seguinte URL:
 `https://localhost:3000/api/v1/imc`
 
 
+### Documentação da API
+
+Para documentar a API de cálculo do IMC foi utilizado a gem swagger, utilizando ela foi 
+criado o endpoint `/api-docs/` onde é contém a documentaçao da API com todas as possíveis respostas
+e exemplos. Além disso, é possível realizar requisições http POST e visualizar as respostas por meio
+do acesso à URL:
+
+`http://localhost:3000/api-docs/index.html`
+
+A imagem abaixo apresenta a documentação da API desenvolvida com swagger.
+
+![alt text](https://github.com/thaisantero/imc-calculator/blob/main/images_raeadme/Screenshot%20from%202023-01-20%2018-18-53.png)
+
+
 #### Status de resposta possíveis
 
 Status `200` | A requisição foi bem sucedida.
@@ -140,14 +154,6 @@ e o status http `401`:
 "errors": "Token inválido"
 }
 ```
-
-### Swagger
-
-Para simular o uso da aplicação foi criado o endpoint `/api-docs/index.html` utilizando a 
-gem 'swagger' que permite realizar requisições http POST e visualizar as respostas por meio
-do acesso à URL:
-
-`http://localhost:3000/api-docs/index.html`
 
 ## :red_circle: Pontos a melhorar
 
