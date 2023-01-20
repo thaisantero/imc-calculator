@@ -1,5 +1,6 @@
 pt-BR:
-  imc:
-    attributes:
-      height: Altura
-      weight: Peso
+  activemodel:
+      attributes:
+        imc:
+          height: Altura
+          weight: Peso
