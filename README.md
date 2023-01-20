@@ -8,7 +8,7 @@ empresa Dental Office.
 Esta aplicação tem finalidade de retornar via api um JSON com o valor do IMC, sua
 classificação e nível de obesidade. Para isso deve receber uma requisição HTTP
 POST no endpoint '/imc' com o valor dos parâmetros de altura e peso e um token
-JWT válido para autorização no header do JSON.
+JWT válido para autorização no header da requisição.
 
 Como não foi requerido no escopo do projeto o login para criar o JWT token, não
 foi possível realmente decodificar o código JWT enviado e verificar se corresponde
@@ -40,17 +40,16 @@ Primeiro, clone o repositório:
 ```sh
 $ git clone git@github.com:thaisantero/imc-calculator.git
 ```
-Se deseja utilizar o Docker para executar a aplicação siga
+Se desejar utilizar o Docker para executar a aplicação siga
 as seguintes etapas:
 
-1) Caso não possua o Docker Desktop instalado em seu computador faça
-o download a partir do link:
+1) Faça download do Docker Desktop, caso não o tenha instalado em seu computador,
+a partir do link:
 
 [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 
-2) Execute o docker compose, o qual sobe o container da
-aplicação e executa o servidor sem precisar instalar
-as dependências, utilizando o comando:
+2) Execute o docker compose, que sobe o container da
+aplicação e executa o servidor, utilizando o comando:
 
 ```sh
 $ docker compose up
@@ -113,8 +112,8 @@ Com o header no formato do exemplo a seguir:
 
 `headers: {"Authorization": "Bearer valid_token"}`
 
-Caso a requisição seja um sucesso, com o status `200`, será retornado um JSON com os parâmetros obtidos,
-de acordo com o exemplo:
+Caso a requisição seja um sucesso, será retornado um JSON com os parâmetros obtidos
+e o status http `200`, de acordo com o exemplo:
 
 ```json
 {
@@ -124,7 +123,8 @@ de acordo com o exemplo:
 }
 ```
 
-Caso a requisição envie parâmetros inválidos, retorna status `400` e será exibida uma mensagem de erro em formato JSON:
+Caso a requisição envie parâmetros inválidos, será retornada uma mensagem de erro em formato JSON 
+e o status http `400`:
 
 ```json
 {
@@ -132,7 +132,8 @@ Caso a requisição envie parâmetros inválidos, retorna status `400` e será e
 }
 ```
 
-Se a requisição enviar um token JWT inválido, retorna status `401` e será exibida uma mensagem de erro em formato JSON:
+Se a requisição enviar um token JWT inválido, será retornada uma mensagem de erro em formato JSON 
+e o status http `401`:
 
 ```json
 {
@@ -142,6 +143,13 @@ Se a requisição enviar um token JWT inválido, retorna status `401` e será ex
 
 ## :red_circle: Pontos a melhorar
 
-Para efetivamente realizar a autenticação utilizando um token JWT
-implementaria uma rota para login na aplicação e salvaria no banco de dados
-as informações do usuário.
+Como não foi colocado como prioridade no escopo do projeto e, também,
+pelo tempo reduzido para desenvolver a aplicação, não desenvolvi a rota
+para login.
+
+Com isso, uma feature interessante para evolução da aplicação no futuro
+seria a implantação de um endpoint para login que retornaria o JWT Token
+referente ao usuário e os dados do usuário seriam salvos no banco de dados.
+
+Para que, assim, realmente seja realizada a autenticação do JWT Token
+na rota `POST '/imc'/`.
